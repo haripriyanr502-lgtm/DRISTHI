@@ -1,0 +1,19 @@
+{
+  "dataset_title": "DRISTHI Reference Physiological Calibration Samples",
+  "sampling_rate_hz": 250.0,
+  "lead_configuration": "Standard Bipolar Lead II",
+  "voltage_scale": "10 mm/mV (0.1 mV/mm)",
+  "sweep_speed": "25 mm/s",
+  "samples": [
+    {
+      "file": "normal_sinus_rhythm_sample.csv",
+      "rhythm_type": "Normal Sinus Rhythm",
+      "target_hr_bpm": 72,
+      "p_wave_present": true,
+      "qrs_duration_ms": 84,
+      "pr_interval_ms": 160
+    }
+  ],
+  "disclaimer": "These samples are provided strictly for software pipeline verification, UI testing, and algorithm benchmarking."
+}
+
