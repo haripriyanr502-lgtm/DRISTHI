@@ -14,7 +14,9 @@ from app.api import (
     caregivers_router,
     monitoring_router,
     health_router,
-    demo_router
+    demo_router,
+    ecg_preprocess_router,
+    datasets_router
 )
 
 # Initialize database tables
@@ -46,7 +48,8 @@ app.include_router(ecg_router, prefix=settings.API_V1_STR)
 app.include_router(analysis_router, prefix=settings.API_V1_STR)
 app.include_router(caregivers_router, prefix=settings.API_V1_STR)
 app.include_router(monitoring_router, prefix=settings.API_V1_STR)
-app.include_router(demo_router, prefix=settings.API_V1_STR)
+app.include_router(ecg_preprocess_router, prefix=settings.API_V1_STR)
+app.include_router(datasets_router, prefix=settings.API_V1_STR)
 
 @app.get("/")
 def root():

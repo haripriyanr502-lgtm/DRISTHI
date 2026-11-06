@@ -37,7 +37,10 @@ export const ECGUploadPage = ({ setActivePage, onAnalysisComplete }) => {
   const [filePreview, setFilePreview] = useState(null);
   const [fileCategory, setFileCategory] = useState(null);
   const [consentForResearch, setConsentForResearch] = useState(false);
-  const [samplingRate, setSamplingRate] = useState(250.0);
+  const [calibrationStatus, setCalibrationStatus] = useState(null);
+  const [estSpeed, setEstSpeed] = useState('');
+  const [estAmp, setEstAmp] = useState('');
+  const [ampMmMv, setAmpMmMv] = useState('');
   
   const [isDragging, setIsDragging] = useState(false);
   const [uploadProgress, setUploadProgress] = useState(0);

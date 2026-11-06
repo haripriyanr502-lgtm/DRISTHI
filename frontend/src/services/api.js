@@ -104,6 +104,7 @@ class ApiService {
   }
 
   // ECG Upload & Processing
+  // ECG Upload & Processing (digital signals)
   async uploadECG({ file, patientId, consentForResearch, samplingRate = 250.0 }) {
     const formData = new FormData();
     formData.append('file', file);
@@ -114,10 +115,28 @@ class ApiService {
     const res = await fetch(`${API_BASE_URL}/ecg/upload`, {
       method: 'POST',
       headers: this.getHeaders(true),
-      body: formData
+      body: formData,
     });
     return this.handleResponse(res);
   }
+
+  // ECG Image to Waveform conversion
+  async uploadECGImage({ file, patientId, consentForResearch, speed_mm_s, amp_mm_mv }) {
+    const formData = new FormData();
+    formData.append('file', file);
+    formData.append('patient_id', patientId);
+    formData.append('consent_for_research', consentForResearch ? 'true' : 'false');
+    if (speed_mm_s !== undefined && speed_mm_s !== null) formData.append('speed_mm_s', speed_mm_s);
+    if (amp_mm_mv !== undefined && amp_mm_mv !== null) formData.append('amp_mm_mv', amp_mm_mv);
+
+    const res = await fetch(`${API_BASE_URL}/ecg_image/upload_image`, {
+      method: 'POST',
+      headers: this.getHeaders(true),
+      body: formData,
+    });
+    return this.handleResponse(res);
+  }
+
 
   async loadSampleECG({ patientId = 'PT-DEMO-01', rhythmType = 'normal', consentForResearch = false }) {
     const formData = new FormData();

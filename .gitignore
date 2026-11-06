@@ -43,3 +43,9 @@ Thumbs.db
 .env.local
 .env.*.local
 
+
+# Local ECG datasets - keep raw data outside Git
+backend/app/database/BIH/
+backend/app/database/Disesase_Prediction/
+backend/app/database/ECG_ID/
+backend/app/database/normal-sinus-rhythm-database/
